@@ -1,0 +1,75 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+shell = "zsh"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
+[templates]
+defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+fzf-install = "{{ dir }}/install --bin > /dev/null"
+fzf-path = "export PATH=\"$PATH:{{ dir }}/bin\""
+PATH = 'export PATH="$PATH:{{ dir }}"'
+
+[plugins.oh-my-zsh]
+github = "ohmyzsh/ohmyzsh"
+
+[plugins.zsh-autosuggestions]
+github = 'zsh-users/zsh-autosuggestions'
+use = ['{{ name }}.zsh']
+apply = ["defer"]
+
+[plugins.base16]
+github = "chriskempson/base16-shell"
+apply = ["defer"]
+
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+use = ['{{ name }}.zsh']
+apply = ["defer"]
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["defer"]
+
+[plugins.autojump]
+github = "wting/autojump"
+dir = "bin"
+apply = ["PATH", "source"]
+
+[plugins.fzf]
+github = "junegunn/fzf"
+apply = ["fzf-install", "fzf-path", "defer"]
+
+[plugins.zsh-nvm]
+github = "lukechilds/zsh-nvm"
+use = [ '{{ name }}.plugin.zsh']
+apply = ["defer"]
+
+# game
+[plugins.play]
+inline = "autoload -U tetriscurses"
+
+# my cumstom plugins
+# Since we want to prioritize scripts created by individuals,
+# write after setting third party.
+[plugins.dotfiles-core]
+local = "~/.config/zsh/core"
+use = ["*.zsh"]
+apply = ["source"]
+
+[plugins.dotfiles-custom-plugins]
+local = "~/.config/zsh/plugins"
+use = ["*.zsh"]
+apply = ["source"]
+

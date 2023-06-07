@@ -1,0 +1,3 @@
+# Automatically normalize line endings for all text-based files
+# Please do not uncomment the following as it will fail to install homebrew
+#* text=auto
