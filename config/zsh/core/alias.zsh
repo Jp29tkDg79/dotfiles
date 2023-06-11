@@ -27,7 +27,7 @@ alias history='history -t "%F %T"'
 # homebrew --------------------
 if [[ $(command -v brew) ]]; then
   alias br="brew"
-  alias brup="brew upgrade"
+  alias brup="brew upgrade && brew cleanup --prune=all"
   alias brin="brew install"
   alias brrin="brew reinstall"
   alias brun="brew uninstall"
