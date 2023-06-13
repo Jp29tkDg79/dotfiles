@@ -67,6 +67,37 @@ zle -N select-git-switch
 # key bindはお好みで
 bindkey "^g" select-git-switch
 
+# alias fzf
+function fzf-alias() {
+  local als=$(alias |
+    sed 's/=/\t/' |
+    column -s '	' -t |
+    ${__FZF_CMD} ${__FZF_CMD_OPTS[@]} --exit-0 --layout=reverse --no-multi --prompt='alias > ' --preview='echo {2..}' |
+    awk '{print $1}'
+  )
+  if [ -n "$als" ]; then
+    local BUFFER="$als " # Insert a space at the end of make it easier to type the next command.
+    zle end-of-line # move the cursor end of line
+    zle redisplay
+  fi
+}
+
+zle -N fzf-alias
+bindkey "^@" fzf-alias
+
+# fgを使わずctrl+zで行ったり来たりする
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 # -------------------------------------------------
 # fzf-cd-widget
 # -------------------------------------------------
