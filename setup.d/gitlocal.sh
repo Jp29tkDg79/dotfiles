@@ -1,6 +1,10 @@
 #!/bin/sh
 
-GIT_CONFIG_LOCAL=$HOME/.gitconfig.local
+# This is for debugging.
+# Add a value to the second argument when running in debug mode.
+[[ -n $XDG_CONFIG_HOME ]] && XDG_CONFIG_HOME=$HOME/.config/
+
+GIT_CONFIG_LOCAL=${XDG_CONFIG_HOME%/}/.gitconfig.local
 
 echo "--- Set up git config local ---"
 

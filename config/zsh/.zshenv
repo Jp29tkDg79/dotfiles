@@ -12,17 +12,29 @@ export XDG_STATE_HOME="$HOME"/.local/state
 # zsh home dir
 export ZDOTDIR=${XDG_CONFIG_HOME%/}/zsh
 
-# nvm setup
+# nvm setup ----------------
 export NVM_DIR=${XDG_CONFIG_HOME%/}/.nvm
+# node history
+export NODE_REPL_HISTORY=${XDG_CONFIG_HOME%/}/node_repl_history
 
 # cargo setup
-. "$HOME/.cargo/env"
-
-typeset -U path PATH
+export CARGO_HOME=${XDG_CONFIG_HOME%/}/cargo
+# . ${CARGO_HOME%/}/env
 
 # pyenv setting -------------
-export PYENV_ROOT="$HOME/.pyenv"
+export PYENV_ROOT=${XDG_CONFIG_HOME%/}/.pyenv
 
+# golang setting ------------
+export GOPATH=${XDG_CONFIG_HOME%/}/go
+
+# docker setting ------------
+export DOCKER_CONFIG=${XDG_CONFIG_HOME%/}/docker
+
+# minikube setting ----------
+export MINIKUBE_HOME=${XDG_CONFIG_HOME%/}/minikube
+
+# Set lower path and upper PATH to be considered same
+typeset -U path PATH
 # path setting --------------
 # `(N-/)` is an option to add the path the environment variable if it exists,
 # and not to add it if it does not exist
@@ -30,9 +42,11 @@ export path=(
   /usr/local/bin/(N-/)
   /usr/local/sbin(N-/)
   /Library/Apple/usr/bin(N-/)
-  $PYENV_ROOT/bin(N-/) # using pyenv
+  ${PYENV_ROOT%/}/bin(N-/) # using pyenv
   /bin
   /usr/bin
   /sbin
 )
 
+# source cargo env (using rustup,cargo etc)
+. ${CARGO_HOME%/}/env
