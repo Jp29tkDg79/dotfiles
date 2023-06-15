@@ -33,14 +33,13 @@ export DOCKER_CONFIG=${XDG_CONFIG_HOME%/}/docker
 # minikube setting ----------
 export MINIKUBE_HOME=${XDG_CONFIG_HOME%/}/minikube
 
-# Set lower path and upper PATH to be considered same
+# Do not add duplicate values to path
 typeset -U path PATH
 # path setting --------------
 # `(N-/)` is an option to add the path the environment variable if it exists,
 # and not to add it if it does not exist
 export path=(
-  /usr/local/bin/(N-/)
-  /usr/local/sbin(N-/)
+  /usr/local/{bin,sbin}/(N-/)
   /Library/Apple/usr/bin(N-/)
   ${PYENV_ROOT%/}/bin(N-/) # using pyenv
   /bin
