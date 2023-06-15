@@ -16,10 +16,19 @@ brew-upgrade () {
   fi
 }
 
-brew-uninstall () {
-  local uninst=$(brew leaves | ${__FZF_CMD} ${__FZF_CMD_OPTS[@]} --prompt="brew clean package > ")
-  if [[ $uninst ]]; then
-    for prog in $(echo $uninst);
-    do; brew uninstall $prog; done;
+# Commented out because `brew uninstall` does not remove dependencies `formulae` togerther.
+# brew-uninstall () {
+#   local uninst=$(brew leaves | ${__FZF_CMD} ${__FZF_CMD_OPTS[@]} --prompt="brew clean package > ")
+#   if [[ $uninst ]]; then
+#     for prog in $(echo $uninst);
+#     do; brew uninstall $prog; done;
+#   fi
+# }
+
+brew-rm () {
+  local rminst=$(brew leaves | ${__FZF_CMD} ${__FZF_CMD_OPTS[@]} --prompt="brew rmtree > ")
+  if [[ $rminst ]]; then
+    for prog in $(echo $rminst);
+    do; brew rmtree $prog; done;
   fi
 }
