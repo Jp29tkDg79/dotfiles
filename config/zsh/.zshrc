@@ -89,6 +89,7 @@ if [[ -e $__ohmyzsh ]]; then
     docker     # This plugin adds auto-completion and aliases for docker(see:https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/docker/README.md)
     docker-compose # This plugin provides completion for docker-compose as well as some aliases for frequent docker-compose commands.
     emoji      # Support for conveniently working with Unicode emoji in Zsh.
+    brew       # homebrew alias setting
   )
 fi
 

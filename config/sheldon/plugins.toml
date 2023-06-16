@@ -29,9 +29,9 @@ github = 'zsh-users/zsh-autosuggestions'
 use = ['{{ name }}.zsh']
 apply = ["defer"]
 
-[plugins.base16]
-github = "chriskempson/base16-shell"
-apply = ["defer"]
+# [plugins.base16]
+# github = "chriskempson/base16-shell"
+# apply = ["defer"]
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"

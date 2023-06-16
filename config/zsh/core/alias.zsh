@@ -26,16 +26,17 @@ alias history='history -t "%F %T"'
 
 # homebrew --------------------
 if [[ $(command -v brew) ]]; then
-  alias br="brew"
-  alias brup="brew upgrade && brew cleanup --prune=all"
-  alias brin="brew install"
-  alias brrin="brew reinstall"
-  alias brun="brew uninstall"
+  # Command out because I added an alias for the brew command in oh-my-zsh
+  # alias br="brew"
+  # alias brup="brew upgrade && brew cleanup --prune=all"
+  # alias brin="brew install"
+  # alias brrin="brew reinstall"
+  # alias brun="brew uninstall"
   alias brrm="brew rmtree"
   alias brls="brew list"
-  alias brpf="brew --prefix"
+  # alias brpf="brew --prefix"
   alias brus="brew uses --installed"
-  alias brclpr="brew cleanup --prune=all"
+  # alias brclpr="brew cleanup --prune=all"
   alias brdct="brew doctor"
   alias brdmp="rm Brewfile 2>/dev/null || true && brew bundle dump"
 fi

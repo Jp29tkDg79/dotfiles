@@ -7,7 +7,7 @@ export LANG=ja_JP.UTF-8
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
-export XDG_STATE_HOME="$HOME"/.local/state
+export XDG_STATE_HOME=$HOME/.local/state
 
 # zsh home dir
 export ZDOTDIR=${XDG_CONFIG_HOME%/}/zsh
@@ -15,7 +15,7 @@ export ZDOTDIR=${XDG_CONFIG_HOME%/}/zsh
 # nvm setup ----------------
 export NVM_DIR=${XDG_CONFIG_HOME%/}/.nvm
 # node history
-export NODE_REPL_HISTORY=${XDG_CONFIG_HOME%/}/node_repl_history
+export NODE_REPL_HISTORY=${XDG_CONFIG_HOME%/}/node_history
 
 # cargo setup
 export CARGO_HOME=${XDG_CONFIG_HOME%/}/cargo
