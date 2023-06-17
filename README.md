@@ -1,6 +1,8 @@
 # dotfiles
 My Dotfiles
 
+[![Lint yaml](https://github.com/Jp29tkDg79/dotfiles/actions/workflows/lint-yaml.yml/badge.svg)](https://github.com/Jp29tkDg79/dotfiles/actions/workflows/lint-yaml.yml)
+
 # Warning
 - I use homebrew to install various applications. 
   - Therefore, it is designed to run on linuxOS or macOS.
