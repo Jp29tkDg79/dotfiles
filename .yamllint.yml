@@ -6,23 +6,22 @@ yaml-files:
   - '.yamllint'
 
 rules:
-  braces: 
+  braces:
     level: warning
     min-spaces-inside: 0
     max-spaces-inside: 1
 
-  brackets: 
+  brackets:
     level: warning
     min-spaces-inside: 0
     max-spaces-inside: 1
 
-  colons: 
+  colons:
     level: warning
 
-  commas: 
-    level: warning
+  commas: disable
 
-  comments: 
+  comments:
     level: warning
     min-spaces-from-content: 1
 
@@ -37,10 +36,10 @@ rules:
 
   empty-values: disable
 
-  hyphens: 
+  hyphens:
     level: warning
 
-  indentation: 
+  indentation:
     level: warning
     indent-sequences: consistent
 
@@ -50,14 +49,14 @@ rules:
 
   line-length: disable
 
-  new-line-at-end-of-file: 
+  new-line-at-end-of-file:
     level: warning
 
   new-lines: enable
 
   octal-values: disable
 
-  trailing-spaces: 
+  trailing-spaces:
     level: warning
 
   truthy: disable
