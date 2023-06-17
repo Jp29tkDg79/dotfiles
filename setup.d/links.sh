@@ -8,6 +8,7 @@
 ignore_dir=(
   homebrew
   setup.d
+  .github
 )
 
 ignore_file=(
