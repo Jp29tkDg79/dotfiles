@@ -74,7 +74,7 @@ format = '\[[ ⏱ $duration ]($style)\]'
 
 [git_branch]
 symbol = " "
-truncation_length = 4
+# truncation_length = 4
 truncation_symbol = ''
 format = '\[[$symbol$branch]($style)\]'
 
