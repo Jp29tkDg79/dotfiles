@@ -218,6 +218,7 @@ return {
         "prettier", -- ts/js formatter
         "stylua", -- lua formatter
         "eslint_d", -- ts/js linter
+        "yamllint", -- yamllint
         -- python formatter & linter
         "autopep8",
         "flake8",
@@ -276,6 +277,7 @@ return {
             end,
           }),
           formatting.stylua, -- lua formatter
+          diagnostics.yamllint, -- yamllint
           diagnostics.eslint_d.with({ -- js/ts linter
             -- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
             condition = function(utils)

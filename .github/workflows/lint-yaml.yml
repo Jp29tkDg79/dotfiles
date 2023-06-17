@@ -1,0 +1,44 @@
+---
+
+name: Lint yaml
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+      - 'development'
+    paths:
+      - '**.yml'
+      - '**.yaml'
+      - '.github/workflows/**.yml'
+      - '.github/workflows/**.yaml'
+  pull_request:
+    branches:
+      - 'master'
+      - 'main'
+      - 'development'
+    paths:
+      - '**.yml'
+      - '**.yaml'
+      - '.github/workflows/**.yml'
+      - '.github/workflows/**.yaml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lintYaml:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check YAML files with linter
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: '.'
+          config_file: .yamllint.yml
