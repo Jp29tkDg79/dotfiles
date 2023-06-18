@@ -41,9 +41,10 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 
 -- Avviare e uscire da neovim mentre si usa alacritty per annullare le impostazioni del cursore sovrascritte da neovim.
 -- see: https://github.com/neovim/neovim/wiki/FAQ#cursor-style-isnt-restored-after-exiting-or-suspending-and-resuming-nvim
-vim.api.nvim_create_autocmd("VimLeave", {
+vim.api.nvim_create_autocmd("ExitPre", {
   pattern = "*",
+  group = vim.api.nvim_create_augroup("change_cursor", { clear = true }),
   callback = function()
-    vim.cmd([[set guicursor=a:ver100]])
+    vim.cmd([[set guicursor=a:ver90]])
   end,
 })
