@@ -72,8 +72,31 @@ selection:
   save_to_clipboard: true
 
 cursor:
-  style: block
-  
+  style:
+    # Cursor shape
+    #
+    # Values for `shape`:
+    #   - ▇ Block
+    #   - _ Underline
+    #   - | Beam
+    shape: Beam
+    # Cursor blinking state
+    #
+    # Values for `blinking`:
+    #   - Never: Prevent the cursor from ever blinking
+    #   - Off: Disable blinking by default
+    #   - On: Enable blinking by default
+    #   - Always: Force the cursor to always blink
+    blinking: Off
+
+  vi_mode_style:
+    shape: Beam
+    blinking: Off
+
+  # Cursor blinking interval in milliseconds.
+  # TODO: blinking is off (strange behavior of blinking after neovim)
+  # blink_interval: 500
+
   unfocused_hollow: true
 
 live_config_reload: true
@@ -90,6 +113,7 @@ shell:
 
 key_bindings:
   # see: https://github.com/alacritty/alacritty/wiki/Keyboard-mappings
+  # yamllint disable rule:braces
   - { key: F,            mods: Command,           chars: "\x1bf"                         }
   - { key: B,            mods: Command,           chars: "\x1bb"                         }
   - { key: D,            mods: Command,           chars: "\x1bd"                         }
@@ -98,7 +122,7 @@ key_bindings:
   - { key: Key0,         mods: Command,           action: ResetFontSize                  }
   - { key: Semicolon,    mods: Command|Shift,     action: IncreaseFontSize               }
   - { key: Minus,        mods: Command|Shift,     action: DecreaseFontSize               }
-  - { key: 36,           mods: Command,           action: ToggleSimpleFullscreen         } # For those, coming from iTerm, here's Command + Enter to ToggleFullscreen
+  - { key: Return,       mods: Command,           action: ToggleSimpleFullscreen         } # For those, coming from iTerm, here's Command + Enter to ToggleFullscreen
   - { key: Comma,        mods: Command,           command: { program: "sh", args: ["-c", "~/.config/alacritty/alacritty.yml"]} }
   - { key: N,            mods: Command,           action: SpawnNewInstance               }
   - { key: Space,        mods: Alt,     chars: " "                                       }
@@ -107,5 +131,3 @@ key_bindings:
   - { key: Right,        mods: Alt,     chars: "\x1bf"                                   } # one word right
   - { key: Left,         mods: Command, chars: "\x1bOH",   mode: AppCursor               } # Home
   - { key: Right,        mods: Command, chars: "\x1bOF",   mode: AppCursor               } # End
-
-
