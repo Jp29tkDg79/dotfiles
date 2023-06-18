@@ -31,7 +31,7 @@ rules:
 
   document-start:
     level: warning
-  
+
   empty-lines: disable
 
   empty-values: disable
