@@ -46,13 +46,6 @@ zshaddhistory() {
   [[ ! "$line" =~ "^(cd|j?|lazygit|lazydocker|cat|ls|la|ll|lt|rm|mkdir)($| )" ]]
 }
 
-# When i wirte homebrew path in zshenv, the reading order changes depending on the .zshprofile and i can't set the homebrew path first.
-# So, write the homebrew path reading settings in .zshrc
-path=(
-  /opt/homebrew/{bin,sbin}(N-/)
-  $path
-)
-
 # ----------------------------
 # Curl setting
 # ----------------------------
