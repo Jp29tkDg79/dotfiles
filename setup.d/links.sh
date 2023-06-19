@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# This is for debugging.
-# Add a value to the second argument when running in debug mode.
-[[ -n $XDG_CONFIG_HOME ]] && XDG_CONFIG_HOME=$HOME/.config/
-[[ ! -d $XDG_CONFIG_HOME ]] && mkdir -p $XDG_CONFIG_HOME
-
 ignore_dir=(
   homebrew
   setup.d
@@ -17,6 +12,7 @@ ignore_file=(
   LICENSE
   README.md
   bootstrap.sh
+  .yamllint.yml
 )
 
 home_file=(
@@ -52,9 +48,10 @@ done
 # For MacOS. set the hammerspoon link.
 if [[ "$(uname)" != "Darwin" ]]; then
   echo "Skipping hammerspoon configuration as it's not MacOS."
-else
-  echo "For MacOS, creating a link for hammerspoon ..."
-  echo $PWD/.hammerspoon/" → "$HOME
-  ln -sf $PWD/.hammerspoon $HOME
-  echo "hammerspoon configuration completed successfully."
+  exit
 fi
+
+echo "For MacOS, creating a link for hammerspoon ..."
+echo $PWD/.hammerspoon/" → "$HOME
+ln -sf $PWD/.hammerspoon $HOME
+echo "hammerspoon configuration completed successfully."
