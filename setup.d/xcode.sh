@@ -5,11 +5,9 @@ if [[ "$(uname)" != "Darwin" ]]; then
   exit
 fi
 
-echo "--- Set up xcode-select ---"
-if ! xcode-select --print-path &> /dev/null; then
-  echo "Command line tools not found. Installing ..."
-  xcode-select --install
-  echo "Installation of command line tools is completed."
-else
+if xcode-select --print-path &>/dev/null; then
   echo "Command line tools are already installed."
+  exit
 fi
+
+xcode-select --install

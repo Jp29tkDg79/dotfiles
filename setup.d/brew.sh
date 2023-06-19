@@ -1,11 +1,6 @@
 #!/bin/sh
 
-# This is for debugging.
-# Add a value to the second argument when running in debug mode.
-[[ -n $XDG_CONFIG_HOME ]] && XDG_CONFIG_HOME=$HOME/.config/
-[[ ! -d $XDG_CONFIG_HOME ]] && mkdir -p $XDG_CONFIG_HOME
-
-ZPROFILE_PATH=${XDG_CONFIG_HOME%/}/zsh/.zprofile
+ZPROFILE_PATH=${ZDOTDIR%/}/.zprofile
 
 echo "--- Set up homebrew ---"
 if [[ "$(uname)" != "Darwin" && "(expr substr $(uname -s) 1 5)" != "Linux" ]]; then
