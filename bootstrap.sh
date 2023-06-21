@@ -24,12 +24,12 @@ do
   3)
     echo $idx": Create git config for local use Started ..."
     sh $SETUPD/gitlocal.sh
-    echo $idx": Create git config for local use Eed ..."
+    echo $idx": Create git config for local use End ..."
   ;;
   4)
     echo $idx": Setup xcode in MacOS Started ..."
     sh $SETUPD/xcode.sh
-    echo $idx": Setup xcode in MacOS Eed ..."
+    echo $idx": Setup xcode in MacOS End ..."
   ;;
   5)
     echo $idx": Setup homebrew Started ..."
@@ -39,24 +39,17 @@ do
   6)
     echo $idx": Link settings for various applications Started ..."
     sh $SETUPD/links.sh
-    echo $idx": Link settings for various applications Eed ..."
+    echo $idx": Link settings for various applications End ..."
   ;;
   7)
     echo $idx": Install various application files using git clone Started ..."
     sh $SETUPD/gitclone.sh
-    echo $idx": Install various application files using git clone Eed ..."
+    echo $idx": Install various application files using git clone End ..."
   ;;
   8)
-    echo $idx": Install zsh plugin using sheldon Started ..."
-    which sheldon >/dev/null && sheldon lock --update
-    echo $idx": Install zsh plugin using sheldon Eed ..."
-  ;;
-  9)
-    echo $idx": Install various plugins for use with neovim Started ..."
-    [[ $(command -v nvim) ]] && nvim --headless "+Lazy! sync" +qa
-    echo $idx": Install various plugins for use with neovim Eed ..."
-  ;;
-  10)
+    echo $idx": Install langs and some plugins Started ..."
+    sh $SETUPD/build.sh
+    echo $idx": Install langs and some plugins End ..."
   ;;
   *)
     break
