@@ -10,51 +10,53 @@ echo "-------------------------- Start -----------------------------------"
 while :
 do
   let idx=$idx+1
+  prs=$idx":"
   case "$idx" in
   1)
-    echo $idx": Setup environment variables started ..."
+    echo "$prs Setup environment variables started ..."
     sh $SETUPD/exports.sh
-    echo $idx": Setup environment variables end ..."
+    echo "$prs Setup environment variables end ..."
   ;;
   2)
-    echo $idx": Create various folders in xdg config directory Started ..."
+    echo "$prs Create various folders in xdg config directory Started ..."
     sh $SETUPD/make.sh
-    echo $idx": Create various folders in xdg config directory End ..."
+    echo "$prs Create various folders in xdg config directory End ..."
   ;;
   3)
-    echo $idx": Create git config for local use Started ..."
+    echo "$prs Create git config for local use Started ..."
     sh $SETUPD/gitlocal.sh
-    echo $idx": Create git config for local use End ..."
+    echo "$prs Create git config for local use End ..."
   ;;
   4)
-    echo $idx": Setup xcode in MacOS Started ..."
+    echo "$prs Setup xcode in MacOS Started ..."
     sh $SETUPD/xcode.sh
-    echo $idx": Setup xcode in MacOS End ..."
+    echo "$prs Setup xcode in MacOS End ..."
   ;;
   5)
-    echo $idx": Setup homebrew Started ..."
+    echo "$prs Setup homebrew Started ..."
     sh $SETUPD/brew.sh
-    echo $idx": Setup homebrew End ..."
+    echo "$prs Setup homebrew End ..."
   ;;
   6)
-    echo $idx": Link settings for various applications Started ..."
+    echo "$prs Link settings for various applications Started ..."
     sh $SETUPD/links.sh
-    echo $idx": Link settings for various applications End ..."
+    echo "$prs Link settings for various applications End ..."
   ;;
   7)
-    echo $idx": Install various application files using git clone Started ..."
+    echo "$prs Install various application files using git clone Started ..."
     sh $SETUPD/gitclone.sh
-    echo $idx": Install various application files using git clone End ..."
+    echo "$prs Install various application files using git clone End ..."
   ;;
   8)
-    echo $idx": Install langs and some plugins Started ..."
+    echo "$prs Install langs and some plugins Started ..."
     sh $SETUPD/build.sh
-    echo $idx": Install langs and some plugins End ..."
+    echo "$prs Install langs and some plugins End ..."
   ;;
   *)
     break
   ;;
   esac
+  echo # break line
 done
 
 echo "--------------------------      DONE     -----------------------------------"
