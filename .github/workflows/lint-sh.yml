@@ -1,0 +1,41 @@
+---
+
+name: Lint shell script
+
+on:
+  push:
+    branches:
+      - 'master'
+      - 'main'
+      - 'development'
+    paths:
+      - '**.sh'
+      - 'setup.d/**.sh'
+  pull_request:
+    branches:
+      - 'master'
+      - 'main'
+    paths:
+      - '**.sh'
+      - 'setup.d/**.sh'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lintShell:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Enable Problem Matchers
+        run: echo "::add-matcher::.github/shellcheck-matcher.json"
+
+      - name: Exec shellcheck
+        run: |
+          shellcheck -f gcc *.sh
+          echo '::remove-matcher owner=shellcheck-matcher::'
