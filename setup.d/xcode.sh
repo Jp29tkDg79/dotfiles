@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [[ "$(uname)" != "Darwin" ]]; then
   echo "Skipping xcode command line installation as it's not MacOS."
