@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo "Start the installation process of various applications ..."
 
@@ -9,47 +9,47 @@ idx=0
 echo "-------------------------- Start -----------------------------------"
 while :
 do
-  let idx=$idx+1
+  idx=$((idx+1))
   prs=$idx":"
   case "$idx" in
   1)
     echo "$prs Setup environment variables started ..."
-    sh $SETUPD/exports.sh
+    bash "$SETUPD"/exports.sh
     echo "$prs Setup environment variables end ..."
   ;;
   2)
     echo "$prs Create various folders in xdg config directory Started ..."
-    sh $SETUPD/make.sh
+    bash "$SETUPD"/make.sh
     echo "$prs Create various folders in xdg config directory End ..."
   ;;
   3)
     echo "$prs Create git config for local use Started ..."
-    sh $SETUPD/gitlocal.sh
+    bash "$SETUPD"/gitlocal.sh
     echo "$prs Create git config for local use End ..."
   ;;
   4)
     echo "$prs Setup xcode in MacOS Started ..."
-    sh $SETUPD/xcode.sh
+    bash "$SETUPD"/xcode.sh
     echo "$prs Setup xcode in MacOS End ..."
   ;;
   5)
     echo "$prs Setup homebrew Started ..."
-    sh $SETUPD/brew.sh
+    bash "$SETUPD"/brew.sh
     echo "$prs Setup homebrew End ..."
   ;;
   6)
     echo "$prs Link settings for various applications Started ..."
-    sh $SETUPD/links.sh
+    bash "$SETUPD"/links.sh
     echo "$prs Link settings for various applications End ..."
   ;;
   7)
     echo "$prs Install various application files using git clone Started ..."
-    sh $SETUPD/gitclone.sh
+    bash "$SETUPD"/gitclone.sh
     echo "$prs Install various application files using git clone End ..."
   ;;
   8)
     echo "$prs Install langs and some plugins Started ..."
-    sh $SETUPD/build.sh
+    bash "$SETUPD"/build.sh
     echo "$prs Install langs and some plugins End ..."
   ;;
   *)

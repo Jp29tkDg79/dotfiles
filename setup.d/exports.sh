@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # xdg config settings
 export XDG_CONFIG_HOME=$HOME/.config

@@ -233,6 +233,8 @@ return {
         "staticcheck",
         -- java
         "clang-format",
+        -- shcellcheck
+        "shellcheck",
         ---------------------
         -- dap
         ---------------------
@@ -300,6 +302,8 @@ return {
           diagnostics.staticcheck,
           -- java
           formatting.clang_format,
+          -- shellcheck
+          diagnostics.shellcheck,
         },
         -- configure format on save
         on_attach = function(current_client, bufnr)

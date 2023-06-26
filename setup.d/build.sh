@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 # Terminate the prcess if you do not install any programming lang, etc.
-read -n1 -p " Install langs(nodejs,py,rust), some plugins..?(y/n) > " ans; 
+read -n1 -r -p " Install langs(nodejs,py,rust), some plugins..?(y/n) > " ans; 
   [[ ! $ans = [yY] ]] && 
   echo && # break line
   exit
@@ -10,7 +10,7 @@ read -n1 -p " Install langs(nodejs,py,rust), some plugins..?(y/n) > " ans;
 idx=0
 while :
 do
-  let idx=$idx+1
+  idx=$((idx+1))
   prs=" $idx."
   echo  # break line.
   case "$idx" in
@@ -19,14 +19,14 @@ do
       [[ ! $(command -v pyenv) ]] && echo " pyenv not found. Skip python install process." && continue
       while true
       do
-        read -n1 -p " Enter the version of python > " version
+        read -n1 -r -p " Enter the version of python > " version
         echo  # break line.
-        [[ $(pyenv latest -q $version) ]] && break
+        [[ $(pyenv latest -q "$version") ]] && break
         echo " The version entered is not managed by pyenv, try again."
       done
       # Skip if the entered python version is installed
-      [[ $(command -v python) || $(command -v python$version) ]] && echo " Already python installed." && continue
-      pyenv install $(pyenv latest -k $version) && pyenv global $(pyenv latest -k $version)
+      [[ $(command -v python) || $(command -v python"$version") ]] && echo " Already python installed." && continue
+      pyenv install "$(pyenv latest -k "$version")" && pyenv global "$(pyenv latest -k "$version")"
       echo "$prs Install the latest version of python End."
     ;;
     2)
