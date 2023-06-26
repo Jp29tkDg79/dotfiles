@@ -2,6 +2,7 @@
 My Dotfiles
 
 [![Lint yaml](https://github.com/Jp29tkDg79/dotfiles/actions/workflows/lint-yaml.yml/badge.svg)](https://github.com/Jp29tkDg79/dotfiles/actions/workflows/lint-yaml.yml)
+[![Lint shell script](https://github.com/Jp29tkDg79/dotfiles/actions/workflows/lint-sh.yml/badge.svg)](https://github.com/Jp29tkDg79/dotfiles/actions/workflows/lint-sh.yml)
 
 # Warning
 - I use homebrew to install various applications. 
@@ -19,9 +20,9 @@ My Dotfiles
 # Usage
 - Download the file from github as a zip file, unzip the zip file, and store it in your home dir.
 - Start a terminal and navigate to the location where you solved the zip.
-- ```sh ./bootstrap.sh```
+- ```bash ./bootstrap.sh```
 - Enter your username and email registerd in github.
-  - skip this step if you already have ```$XDG_CONFIG_HOME/.gitconfig.local```
+  - skip this step if you already have ```$XDG_CONFIG_HOME/git/.gitconfig.local```
 - Note:Please close the terminal that was started in the environment construction and start a new one, because the zsh setting is not reflected.
 
 # Nvm(nodejs version manager) setup
