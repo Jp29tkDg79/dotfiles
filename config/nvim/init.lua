@@ -2,7 +2,7 @@
 vim.scriptencoding = "utf-8"
 
 for _, v in pairs(require("utils.util").get_lua_files("core")) do
-  if v:match("keymaps") then
+  if v:match("keymap") or v:match("autocmd") then
     -- Lazy loading is performed because keymap uses lazy
     vim.schedule(function()
       require(v)
@@ -11,7 +11,6 @@ for _, v in pairs(require("utils.util").get_lua_files("core")) do
     require(v)
   end
 end
--- end)
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

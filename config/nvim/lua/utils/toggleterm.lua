@@ -12,6 +12,30 @@ local on_close = function(term)
 end
 
 ---------------------
+-- nodejs
+---------------------
+local nodejs = Terminal:new({
+  cmd = "node",
+  float_opts = {
+    border = "double",
+  },
+  on_open = on_open,
+  on_close = on_close,
+})
+
+---------------------
+-- python
+---------------------
+local python = Terminal:new({
+  cmd = "python",
+  float_opts = {
+    border = "double",
+  },
+  on_open = on_open,
+  on_close = on_close,
+})
+
+---------------------
 -- lazygit
 ---------------------
 local lazygit = Terminal:new({
@@ -37,6 +61,14 @@ local lazydocker = Terminal:new({
   on_open = on_open,
   on_close = on_close,
 })
+
+M._nodejs_toggle = function()
+  nodejs:toggle()
+end
+
+M._python_toggle = function()
+  python:toggle()
+end
 
 M._lazygit_toggle = function()
   lazygit:toggle()

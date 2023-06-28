@@ -48,3 +48,13 @@ vim.api.nvim_create_autocmd("ExitPre", {
     vim.cmd([[set guicursor=a:ver90]])
   end,
 })
+
+-- Setup to allow switching back and forth between text mdoe and term mode
+-- see: https://github.com/akinsho/toggleterm.nvim
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "term://*",
+  group = vim.api.nvim_create_augroup("terminal_open", { clear = true }),
+  callback = function()
+    vim.cmd("lua require('core.keymaps')._set_terminal_keymaps()")
+  end,
+})

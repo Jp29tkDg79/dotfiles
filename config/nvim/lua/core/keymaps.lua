@@ -17,6 +17,8 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+local M = {}
+
 -- cancel insert mode
 map("i", "jk", "<ESC>")
 
@@ -102,8 +104,51 @@ map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "Diagnostic jum
 ---------------------
 -- Toggleterm
 ---------------------
-map("n", "<leader>gg", toggleterm._lazygit_toggle, { noremap = true, silent = true, desc = "Show lazygit" })
-map("n", "<leader>ld", toggleterm._lazydocker_toggle, { noremap = true, silent = true, desc = "Show lazydocker" })
+-- togglterm keymaping
+M._set_terminal_keymaps = function()
+  local opts = {}
+  map("t", "<esc>", [[<C-\><C-n>]], opts)
+  map("t", "jk", [[<C-\><C-n>]], opts)
+  map("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
+  map("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
+  map("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
+  map("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+end
+
+-- general
+map(
+  "n",
+  "<leader>tf",
+  "<cmd>ToggleTerm direction=float<cr>",
+  { noremap = true, silent = true, desc = "Show term float" }
+)
+map(
+  "n",
+  "<leader>th",
+  "<cmd>ToggleTerm size=15 direction=horizontal<cr>",
+  { noremap = true, silent = true, desc = "Show term horizontal" }
+)
+map(
+  "n",
+  "<leader>tv",
+  "<cmd>ToggleTerm size=80 direction=vertical<cr>",
+  { noremap = true, silent = true, desc = "Show term vertical" }
+)
+-- custom
+map(
+  "n",
+  "<leader>tjs",
+  toggleterm._nodejs_toggle,
+  { noremap = true, silent = true, desc = "Use nodejs interactive mode" }
+)
+map(
+  "n",
+  "<leader>tpy",
+  toggleterm._python_toggle,
+  { noremap = true, silent = true, desc = "Use python interactive mode" }
+)
+map("n", "<leader>tlg", toggleterm._lazygit_toggle, { noremap = true, silent = true, desc = "Show lazygit" })
+map("n", "<leader>tld", toggleterm._lazydocker_toggle, { noremap = true, silent = true, desc = "Show lazydocker" })
 
 ---------------------
 -- markdown preview
@@ -119,3 +164,5 @@ map("n", "<F10>", "<cmd>DapStepOver<cr>", { silent = true, desc = "Dap step over
 map("n", "<F11>", "<cmd>DapStepInto<cr>", { silent = true, desc = "Dap step into" })
 map("n", "<F12>", "<cmd>DapStepOut<cr>", { silent = true, desc = "Dap step out" })
 map("n", "<leader>b", "<cmd>DapToggleBreakpoint<cr>", { silent = true, desc = "Dap toggle breakpoint" })
+
+return M
