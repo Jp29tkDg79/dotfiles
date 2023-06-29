@@ -33,6 +33,9 @@ export DOCKER_CONFIG=${XDG_CONFIG_HOME%/}/docker
 # minikube setting ----------
 export MINIKUBE_HOME=${XDG_CONFIG_HOME%/}/minikube
 
+# tmux setting --------------
+export ZSH_TMUX_CONFIG=${XDG_CONFIG_HOME%/}/tmux/tmux.conf
+
 # Do not add duplicate values to path
 typeset -U path PATH
 # path setting --------------
