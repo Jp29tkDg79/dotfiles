@@ -1,8 +1,9 @@
 return {
   {
-    "TimUntersberger/neogit",
+    "NeogitOrg/neogit",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+      "nvim-lua/plenary.nvim",
       {
         "sindrets/diffview.nvim",
         lazy = true,
@@ -30,15 +31,12 @@ return {
       { "<leader>gn", "<cmd>Neogit<cr>", desc = "Open neogit" },
     },
     config = function(_, opts)
-      local ng = require("neogit")
-      ng.setup(opts)
-      -- Set to automatically close when git push is completed
-      local group = vim.api.nvim_create_augroup("NeogitAutoClose", { clear = true })
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "NeogitPushComplete",
-        group = group,
-        callback = ng.close,
-      })
+      require("neogit").setup(opts)
+      vim.cmd([[hi def NeogitDiffAddHighlight guibg=#404040 guifg=#859900]])
+      vim.cmd([[hi def NeogitDiffDeleteHighlight guibg=#404040 guifg=#dc322f]])
+      vim.cmd([[hi def NeogitDiffContextHighlight guibg=#333333 guifg=#b2b2b2]])
+      vim.cmd([[hi def NeogitHunkHeader guifg=#cccccc guibg=#404040]])
+      vim.cmd([[hi def NeogitHunkHeaderHighlight guifg=#cccccc guibg=#4d4d4d]])
     end,
   },
   {

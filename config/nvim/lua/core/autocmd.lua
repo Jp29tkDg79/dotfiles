@@ -58,3 +58,10 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.cmd("lua require('core.keymaps')._set_terminal_keymaps()")
   end,
 })
+
+-- Auto command config for neogit
+vim.api.nvim_create_autocmd("User", {
+  pattern = "NeogitPushComplete",
+  group = vim.api.nvim_create_augroup("Neogit_auto_cmd", { clear = true }),
+  callback = require("neogit").close,
+})
