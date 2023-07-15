@@ -63,5 +63,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 vim.api.nvim_create_autocmd("User", {
   pattern = "NeogitPushComplete",
   group = vim.api.nvim_create_augroup("Neogit_auto_cmd", { clear = true }),
-  callback = require("neogit").close,
+  callback = function()
+    require("neogit").close()
+  end,
 })
