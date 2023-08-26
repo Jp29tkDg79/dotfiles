@@ -54,7 +54,7 @@ apply = ["fzf-install", "fzf-path", "defer"]
 [plugins.zsh-nvm]
 github = "lukechilds/zsh-nvm"
 use = [ '{{ name }}.plugin.zsh']
-apply = ["defer"]
+# apply = ["defer"]
 
 # game
 [plugins.play]
