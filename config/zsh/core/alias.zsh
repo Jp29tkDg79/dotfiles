@@ -21,6 +21,11 @@ alias cls="clear" # For clearing the prompt as in windows
 alias :wq="exit"
 alias :q="exit"
 
+# safety measure -------
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
 # history --------------
 alias history='history -t "%F %T"'
 

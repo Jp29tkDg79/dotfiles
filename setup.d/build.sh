@@ -39,6 +39,11 @@ do
       [[ ! $(command -v nvm) ]] && echo " nvm not found. Skip nodejs install process." && continue
       [[ $(command -v node) ]] && echo " Already nodejs installed." && continue
       nvm install --lts && nvm alias default 'lts/*'
+      # Check that the "npm" command
+      if [[ $(command -v npm) ]]; then
+        # Install dependency packages used for js and ts completion in nvim.
+        npm install -g typescript typescript-language-server
+      fi
       echo "$prs Install the latest version of nodejs End."
     ;;
     4)
