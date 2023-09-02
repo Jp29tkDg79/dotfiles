@@ -88,7 +88,14 @@ return {
         -- Js & ts
         ---------------------
         tsserver = {
-          filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+          },
           cmd = { "typescript-language-server", "--stdio" },
         },
         ---------------------
