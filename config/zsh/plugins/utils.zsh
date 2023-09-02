@@ -19,3 +19,8 @@ ask_yes_or_no () {
     echo abort
   fi
 }
+
+# Function to exec "mkdir" and "cd" command
+mkd() {
+  mkdir "$1" && cd "$_"
+}
