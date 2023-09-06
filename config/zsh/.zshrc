@@ -68,6 +68,15 @@ if [[ -n $__brewopssl ]]; then
 fi
 
 # ----------------------------
+# Openjdk setting
+# ----------------------------
+__brewopenjdk=$(brew --prefix openjdk) 2>/dev/null
+if [[ -n $__brewopenjdk ]]; then
+  path=($__brewopenjdk/bin $path)
+  export CPPFLAGS="-I$__brewopenjdk/include"
+fi
+
+# ----------------------------
 # Sheldon setup
 # ----------------------------
 __ohmyzsh=${XDG_DATA_HOME%/}/sheldon/repos/github.com/ohmyzsh/ohmyzsh

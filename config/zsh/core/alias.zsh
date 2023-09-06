@@ -43,7 +43,7 @@ if [[ $(command -v brew) ]]; then
   alias brus="brew uses --installed"
   # alias brclpr="brew cleanup --prune=all"
   alias brdct="brew doctor"
-  alias brdmp="rm Brewfile 2>/dev/null || true && brew bundle dump"
+  alias brdmp="rm -f Brewfile 2>/dev/null || true && brew bundle dump"
 fi
 
 # vim(neoVim or vim) -----------
