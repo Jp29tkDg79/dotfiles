@@ -45,6 +45,7 @@ export path=(
   /usr/local/{bin,sbin}/(N-/)
   /Library/Apple/usr/bin(N-/)
   ${PYENV_ROOT%/}/bin(N-/) # using pyenv
+  ${GOPATH%/}/bin(N-/) # using go
   /bin
   /usr/bin
   /sbin
