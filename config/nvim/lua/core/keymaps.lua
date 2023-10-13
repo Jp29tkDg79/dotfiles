@@ -7,14 +7,14 @@ local utl = require("utils.util")
 
 -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
+    local keys = require("lazy.core.handler").handlers.keys
+    ---@cast keys LazyKeysHandler
+    -- do not create the keymap if a lazy keys handler exists
+    if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+        opts = opts or {}
+        opts.silent = opts.silent ~= false
+        vim.keymap.set(mode, lhs, rhs, opts)
+    end
 end
 
 local M = {}
@@ -37,24 +37,24 @@ map("n", "å", "<cmd>lua require('smart-splits').start_resize_mode()<cr>", { des
 
 -- Move Lines
 if utl.isWin() then
-  -- Using windows Alt key + j(down)/k(up)
-  map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-  map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-  map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-  map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-  map("v", "<A-j>", "<cmd>m '>+1<cr>gv=gv", { desc = "Block move down" })
-  map("v", "<A-k>", "<cmd>m '<-2<cr>gv=gv", { desc = "Block move up" })
+    -- Using windows Alt key + j(down)/k(up)
+    map("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+    map("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+    map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+    map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+    map("v", "<A-j>", "<cmd>m '>+1<cr>gv=gv", { desc = "Block move down" })
+    map("v", "<A-k>", "<cmd>m '<-2<cr>gv=gv", { desc = "Block move up" })
 elseif utl.isMac() or utl.isLinux() then
-  -- Option + J/K
-  -- ∆ == J
-  -- ˚ == K
-  -- see: https://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
-  map("n", "∆", "<cmd>m .+1<cr>==", { desc = "Move down" })
-  map("n", "˚", "<cmd>m .-2<cr>==", { desc = "Move up" })
-  map("i", "∆", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-  map("i", "˚", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-  map("v", "∆", "<cmd>m '>+1<cr>gv=gv", { desc = "Block move down" })
-  map("v", "˚", "<cmd>m '<-2<cr>gv=gv", { desc = "Block move up" })
+    -- Option + J/K
+    -- ∆ == J
+    -- ˚ == K
+    -- see: https://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
+    map("n", "∆", "<cmd>m .+1<cr>==", { desc = "Move down" })
+    map("n", "˚", "<cmd>m .-2<cr>==", { desc = "Move up" })
+    map("i", "∆", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+    map("i", "˚", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+    map("v", "∆", "<cmd>m '>+1<cr>gv=gv", { desc = "Block move down" })
+    map("v", "˚", "<cmd>m '<-2<cr>gv=gv", { desc = "Block move up" })
 end
 
 -- window management
@@ -78,10 +78,10 @@ map({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and clear hlsea
 -- Clear search, diff update and redraw
 -- taken from runtime/lua/_editor.lua
 map(
-  "n",
-  "<leader>ur",
-  "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-  { desc = "Redraw / clear hlsearch / diff update" }
+    "n",
+    "<leader>ur",
+    "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+    { desc = "Redraw / clear hlsearch / diff update" }
 )
 
 -- save file
@@ -106,46 +106,46 @@ map("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<cr>", { desc = "Diagnostic jum
 ---------------------
 -- togglterm keymaping
 M._set_terminal_keymaps = function()
-  local opts = {}
-  map("t", "<esc>", [[<C-\><C-n>]], opts)
-  map("t", "jk", [[<C-\><C-n>]], opts)
-  map("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-  map("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-  map("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-  map("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+    local opts = {}
+    map("t", "<esc>", [[<C-\><C-n>]], opts)
+    map("t", "jk", [[<C-\><C-n>]], opts)
+    map("t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
+    map("t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
+    map("t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
+    map("t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
 end
 
 -- general
 map(
-  "n",
-  "<leader>tf",
-  "<cmd>ToggleTerm direction=float<cr>",
-  { noremap = true, silent = true, desc = "Show term float" }
+    "n",
+    "<leader>tf",
+    "<cmd>ToggleTerm direction=float<cr>",
+    { noremap = true, silent = true, desc = "Show term float" }
 )
 map(
-  "n",
-  "<leader>th",
-  "<cmd>ToggleTerm size=15 direction=horizontal<cr>",
-  { noremap = true, silent = true, desc = "Show term horizontal" }
+    "n",
+    "<leader>th",
+    "<cmd>ToggleTerm size=15 direction=horizontal<cr>",
+    { noremap = true, silent = true, desc = "Show term horizontal" }
 )
 map(
-  "n",
-  "<leader>tv",
-  "<cmd>ToggleTerm size=80 direction=vertical<cr>",
-  { noremap = true, silent = true, desc = "Show term vertical" }
+    "n",
+    "<leader>tv",
+    "<cmd>ToggleTerm size=80 direction=vertical<cr>",
+    { noremap = true, silent = true, desc = "Show term vertical" }
 )
 -- custom
 map(
-  "n",
-  "<leader>tjs",
-  toggleterm._nodejs_toggle,
-  { noremap = true, silent = true, desc = "Use nodejs interactive mode" }
+    "n",
+    "<leader>tjs",
+    toggleterm._nodejs_toggle,
+    { noremap = true, silent = true, desc = "Use nodejs interactive mode" }
 )
 map(
-  "n",
-  "<leader>tpy",
-  toggleterm._python_toggle,
-  { noremap = true, silent = true, desc = "Use python interactive mode" }
+    "n",
+    "<leader>tpy",
+    toggleterm._python_toggle,
+    { noremap = true, silent = true, desc = "Use python interactive mode" }
 )
 map("n", "<leader>tlg", toggleterm._lazygit_toggle, { noremap = true, silent = true, desc = "Show lazygit" })
 map("n", "<leader>tld", toggleterm._lazydocker_toggle, { noremap = true, silent = true, desc = "Show lazydocker" })

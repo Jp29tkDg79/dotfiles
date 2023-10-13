@@ -18,6 +18,7 @@ ignore_file=(
 home_file=(
   .zshenv
   .gitconfig
+  .editorconfig
 )
 
 paths=()
@@ -27,10 +28,10 @@ for f in *; do
   echo "${ignore_dir[@]}" | xargs -n 1 | grep -E "^${f##*/}$" >/dev/null && continue
   for c in 1 2; do
     case "$c" in
-      1) 
+      1)
         find_path=$(find "$f" -mindepth 1 -maxdepth 1 -type f)
       ;;
-      2) 
+      2)
         find_path=$(find "$f" -mindepth 2 -maxdepth 2)
       ;;
     esac
