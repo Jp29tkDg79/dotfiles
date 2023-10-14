@@ -42,6 +42,7 @@ return {
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
+        dependencies = "catppuccin",
         opts = {
             signs = {
                 add = { text = "│" },

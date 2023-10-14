@@ -3,12 +3,12 @@ return {
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
         opts = function()
-            local themes = require("lualine.themes.codedark")
+            -- local themes = require("lualine.themes.codedark")
             local higlight_colors = require("lualine.utils.utils").extract_highlight_colors
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = themes,
+                    theme = "catppuccin",
                     section_separators = { left = "", right = "" },
                     component_separators = { left = "", right = "" },
                     lobalstatus = true,

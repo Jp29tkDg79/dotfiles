@@ -5,6 +5,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         event = { "BufReadPre", "BufNewFile" },
+        lazy = true,
         dependencies = {
             "mason.nvim",
             "ray-x/lsp_signature.nvim",
@@ -141,12 +142,17 @@ return {
                 ---------------------
                 pyright = {
                     settings = {
+                        autoImportCompletion = true,
                         python = {
                             -- using vertual python
-                            venvPath = "./.venv/bin/python",
-                            venv = "env",
+                            -- venvPath = "./.venv/bin/python",
+                            -- venv = "env",
                             analysis = {
-                                extraPaths = { "." },
+                                -- extraPaths = { "." },
+                                autoSearchPaths = true,
+                                diagnosticMode = "openFilesOnly",
+                                useLibraryCodeForTypes = true,
+                                typeCheckingMode = "off",
                             },
                         },
                     },

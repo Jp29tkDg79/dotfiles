@@ -6,7 +6,7 @@ hl(0, "DapBreakpoint", { ctermbg = 0, fg = "#993939", bg = "#31353f", bold = fal
 hl(0, "DapLogPoint", { ctermbg = 0, fg = "#61afef", bg = "#31353f", bold = false })
 hl(0, "DapStopped", { ctermbg = 0, fg = "#98c379", bg = "#31353f", bold = false })
 
-sign("DapBreakpoint", { text = "󰧂", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
+sign("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" })
 sign(
     "DapBreakpointCondition",
     { text = "󰁖", texthl = "DapBreakpoint", linehl = "DapBreakpoint", numhl = "DapBreakpoint" }
@@ -42,10 +42,12 @@ return {
             end
 
             dap.adapters.python = {
-
                 type = "executable",
                 command = cmd,
                 args = { "-m", "debugpy.adapter" },
+                options = {
+                    source_filetype = "python",
+                },
             }
             dap.configurations.python = {
                 {
