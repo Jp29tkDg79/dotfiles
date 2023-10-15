@@ -22,7 +22,7 @@ return {
     -- Debug Adapter Protocol(DAP)
     {
         "mfussenegger/nvim-dap",
-        -- event = "VeryLazy",
+        event = "VeryLazy",
         dependencies = {
             "mason.nvim",
         },
@@ -33,17 +33,11 @@ return {
             -------------------------
             -- Python
             -------------------------
-            -- If you want to add settings, please refer to the path below
             -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#Python
-            local venv = os.getenv("VIRTUAL_ENV") or ""
-            local cmd = "/usr/bin/python3" -- default using local python3
-            if venv ~= "" then
-                cmd = venv .. "/bin/python"
-            end
-
+            -- TODO: what if using python in a virtual env ?
             dap.adapters.python = {
                 type = "executable",
-                command = cmd,
+                command = mcp.package_prefix("debugpy") .. "/venv/bin/python",
                 args = { "-m", "debugpy.adapter" },
                 options = {
                     source_filetype = "python",
@@ -108,7 +102,8 @@ return {
                     args = { "--port", "${port}" },
                 },
                 -- On windows you may have to uncomment this:
-                detached = vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1,
+                -- detached = vim.fn.has("win33") == 1 or vim.fn.has("win64") == 1,
+                detached = require("utils.util").isWin(),
             }
             dap.configurations.cpp = {
                 {
