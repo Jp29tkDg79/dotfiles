@@ -14,7 +14,8 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         main = "ibl",
         opts = {
-            indent = { highlight = highlight },
+            indent = { highlight = highlight, char = "┊", smart_indent_cap = true },
+            scope = { enabled = false },
         },
         config = function(_, opts)
             local hooks = require("ibl.hooks")

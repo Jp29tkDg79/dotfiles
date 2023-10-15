@@ -4,6 +4,7 @@ return {
         "williamboman/mason.nvim",
         cmd = "Mason",
         build = ":MasonUpdate", -- :MasonUpdate updates registry contents
+        dependencies = "catppuccin",
         opts = {
             ensure_installed = {
                 ---------------------
@@ -12,17 +13,12 @@ return {
                 -- See below for installing only jdtls
                 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#jdtls
                 -- Only install jdtls using mason. Other settings are done with nvim-jdtls
-                "jdtls", -- java
-                ---------------------
-                -- formatter & linter
-                ---------------------
-                "prettier", -- ts/js formatter
+                "jdtls", -- java ------------------- formatter & linter ------------------- "prettier", -- ts/js formatter
                 "stylua", -- lua formatter
                 "eslint_d", -- ts/js linter
                 "yamllint", -- yamllint
                 "prettierd",
                 -- python formatter & linter
-                "autopep8",
                 "flake8",
                 "djlint",
                 "isort",
