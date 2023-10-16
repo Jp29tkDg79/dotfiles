@@ -18,7 +18,7 @@ __FZF_FD_DIRS_CMD=(fd --type d)
 __FZF_FD_ALL_OPTS=(--hidden --follow --exclude ".git")
 __FZF_ALL_FILES_CMD=(${__FZF_FD_FILES_CMD[@]} ${__FZF_FD_ALL_OPTS[@]})
 __FZF_FD_ALL_DIRS_CMD=(${__FZF_FD_DIRS_CMD[@]} ${__FZF_FD_ALL_OPTS[@]})
-__FZF_FILE_PREVIEW_CMD=(bat --style=numbers --color=always --line-range: 100 '{}')
+__FZF_FILE_PREVIEW_CMD=(bat -r :100 --color=always --style=header,grid '{}')
 
 # -------------------------------------------------
 # cdrをfzf経由で選択して実行
@@ -213,11 +213,11 @@ j() {
         cd $(autojump $@)
         return
     fi
-    # cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
-    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' | ${__FZF_CMD} ${__FZF_CMD_OPTS[@]} --prompt='autojump > ')" 
+    # cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)"
+    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' | ${__FZF_CMD} ${__FZF_CMD_OPTS[@]} --prompt='autojump > ')"
 }
 
-# My create function 
+# My create function
 # ghq setting
 ghq-fzf() {
   local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
