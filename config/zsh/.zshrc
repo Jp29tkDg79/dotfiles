@@ -89,7 +89,7 @@ if [[ -e $__ohmyzsh ]]; then
     git        # The git plugin provides many alias(see:https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md)
     web-search # This plugin adds aliases for searching with Google, Wiki, Bing, YouTube and other popular services.(ex: google <keyword>)
     docker     # This plugin adds auto-completion and aliases for docker(see:https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/docker/README.md)
-    docker-compose # This plugin provides completion for docker-compose as well as some aliases for frequent docker-compose commands.
+    # docker-compose # This plugin provides completion for docker-compose as well as some aliases for frequent docker-compose commands.
     emoji      # Support for conveniently working with Unicode emoji in Zsh.
     brew       # homebrew alias setting
     tmux       # tmux alias setting

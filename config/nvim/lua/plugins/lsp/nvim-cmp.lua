@@ -2,13 +2,15 @@ return {
     -- snippets
     {
         "L3MON4D3/LuaSnip",
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        build = vim.fn.has("win32") ~= 0 and "make install_jsregexp" or nil,
         event = "VeryLazy",
         dependencies = {
             "rafamadriz/friendly-snippets",
-            lazy = true,
-            config = function()
-                require("luasnip.loaders.from_vscode").lazy_load()
-            end,
+            -- lazy = true,
+            -- config = function()
+            --     require("luasnip.loaders.from_vscode").lazy_load()
+            -- end,
         },
         opts = {
             history = true,
@@ -39,6 +41,31 @@ return {
                 mode = { "i", "s" },
             },
         },
+        config = function(_, opts)
+            local snip = require("luasnip")
+            if opts then
+                snip.config.setup(opts)
+            end
+            vim.tbl_map(function(type)
+                require("luasnip.loaders.from_" .. type).lazy_load()
+            end, { "vscode", "snipmate", "lua" })
+            -- react
+            snip.filetype_extend("typescript", { "javascript" })
+            -- friendly-snippets - enable standardized comments snippets
+            snip.filetype_extend("typescript", { "tsdoc" })
+            snip.filetype_extend("javascript", { "jsdoc" })
+            snip.filetype_extend("lua", { "luadoc" })
+            snip.filetype_extend("python", { "pydoc" })
+            snip.filetype_extend("rust", { "rustdoc" })
+            snip.filetype_extend("cs", { "csharpdoc" })
+            snip.filetype_extend("java", { "javadoc" })
+            snip.filetype_extend("c", { "cdoc" })
+            snip.filetype_extend("cpp", { "cppdoc" })
+            snip.filetype_extend("php", { "phpdoc" })
+            snip.filetype_extend("kotlin", { "kdoc" })
+            snip.filetype_extend("ruby", { "rdoc" })
+            snip.filetype_extend("sh", { "shelldoc" })
+        end,
     },
     -- auto completion
     {

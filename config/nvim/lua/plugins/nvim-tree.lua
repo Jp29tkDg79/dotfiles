@@ -38,12 +38,12 @@ return {
                     },
                 },
             },
-            -- filters = {
-            -- 	custom = { "^\\.git" },
-            -- },
+            filters = {
+                custom = { "^\\.git" },
+            },
             git = {
                 enable = true,
-                ignore = true,
+                -- ignore = true,
             },
             view = {
                 number = true,
