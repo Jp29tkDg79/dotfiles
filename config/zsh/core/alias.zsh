@@ -82,18 +82,34 @@ fi
 alias lg="lazygit"
 
 # docker ---------------------------------
-# see: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
-alias d="docker"
-alias dvpr="docker volume prune"
-alias dsypr="docker system prune"
-alias dps="docker ps"
-alias dpsa="docker ps -a"
-alias ld="lazydocker"
-
-# game or pass time ---------------------
-alias ascaq="asciiquarium"
-alias tetris="tetriscurses"
-
+if [[ $(command -v docker) ]]; then
+  # see: https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker
+  alias d="docker"
+  alias dvpr="docker volume prune"
+  alias dsypr="docker system prune"
+  alias dps="docker ps"
+  alias dpsa="docker ps -a"
+  alias ld="lazydocker"
+  # docker-compose alias ----------------
+  alias dco="docker compose"
+  alias dcb="docker compose build"
+  alias dce="docker compose exec"
+  alias dcps="docker compose ps"
+  alias dcrestart="docker compose restart"
+  alias dcrm="docker compose rm"
+  alias dcr="docker compose run"
+  alias dcstop="docker compose stop"
+  alias dcup="docker compose up"
+  alias dcupb="docker compose up build"
+  alias dcupd="docker compose up -d"
+  alias dcupdb="docker compose -d --build"
+  alias dcdn="docker compose down"
+  alias dcl="docker compose logs"
+  alias dclf="docker compose logs -f"
+  alias dcpull="docker compose pull"
+  alias dcstart="docker compose start"
+  alias dck="docker compose kill"
+fi
 
 # nvm -----------------------------------
 if [[ $(command -v nvm) ]]; then
@@ -109,3 +125,7 @@ if [[ $(command -v pyenv) ]]; then
   # TODO: Need to update when a new version is released, such as python4.
   alias pyenvlts="pyenv install $(pyenv latest -k 3) && pyenv global $(pyenv latest -k 3)"
 fi
+
+# other ---------------------
+alias ascaq="asciiquarium"
+alias tetris="tetriscurses"
