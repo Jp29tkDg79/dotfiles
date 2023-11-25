@@ -39,7 +39,7 @@ return {
                 },
             },
             filters = {
-                custom = { "^\\.git" },
+                custom = { "^\\.git$" },
             },
             git = {
                 enable = true,
