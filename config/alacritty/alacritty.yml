@@ -89,7 +89,7 @@ cursor:
     blinking: Always
 
   vi_mode_style:
-    shape: Block
+    shape: Beam
     blinking: On
 
   # Cursor blinking interval in milliseconds.
