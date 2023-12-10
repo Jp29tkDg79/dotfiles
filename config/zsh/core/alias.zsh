@@ -121,9 +121,13 @@ fi
 
 # pyenv ---------------------------------
 if [[ $(command -v pyenv) ]]; then
+  c_py="$(pyenv version-name)"
+  l_py="$(pyenv latest -k 3)"
   # install python3 with pyenv and set defaults.
   # TODO: Need to update when a new version is released, such as python4.
-  alias pyenvlts="pyenv install $(pyenv latest -k 3) && pyenv global $(pyenv latest -k 3)"
+  alias pyenvlts="pyenv install $l_py && pyenv global $l_py && pyenv uninstall -f $c_py"
+  alias pyenvvers="pyenv versions"
+  alias pyenvcmds="pyenv commands"
 fi
 
 # other ---------------------
