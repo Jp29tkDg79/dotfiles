@@ -15,11 +15,11 @@ else
   echo "Skip clone because the tpm dir already exists."
 fi
 
-ALACRITTY_THEMES=${XDG_CONFIG_HOME%/}/alacritty/
-echo "clone alacritty themes ..."
-if [[ ! -d ${XDG_CONFIG_HOME%/}/alacritty/themes ]]; then
-  git clone https://github.com/eendroroy/alacritty-theme.git "$ALACRITTY_THEMES"
-  echo "alacritty theme install successfully."
-else
-  echo "Already have alacritty themes installed."
-fi
+# ALACRITTY_THEMES=${XDG_CONFIG_HOME%/}/alacritty/
+# echo "clone alacritty themes ..."
+# if [[ ! -d ${XDG_CONFIG_HOME%/}/alacritty/themes ]]; then
+#   git clone https://github.com/eendroroy/alacritty-theme.git "$ALACRITTY_THEMES"
+#   echo "alacritty theme install successfully."
+# else
+#   echo "Already have alacritty themes installed."
+# fi
