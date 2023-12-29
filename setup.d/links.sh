@@ -54,12 +54,12 @@ for fp in "${paths[@]}"; do
 done
 
 # For MacOS. set the hammerspoon link.
-if [[ "$(uname)" != "Darwin" ]]; then
-  echo "Skipping hammerspoon configuration as it's not MacOS."
-  exit
-fi
+# if [[ "$(uname)" != "Darwin" ]]; then
+#   echo "Skipping hammerspoon configuration as it's not MacOS."
+#   exit
+# fi
 
-echo "For MacOS, creating a link for hammerspoon ..."
-echo "$PWD/.hammerspoon/ → $HOME"
-ln -sf "$PWD"/.hammerspoon "$HOME"
-echo "hammerspoon configuration completed successfully."
+# echo "For MacOS, creating a link for hammerspoon ..."
+# echo "$PWD/.hammerspoon/ → $HOME"
+# ln -sf "$PWD"/.hammerspoon "$HOME"
+# echo "hammerspoon configuration completed successfully."
