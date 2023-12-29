@@ -92,7 +92,7 @@ if [[ -e $__ohmyzsh ]]; then
     # docker-compose # This plugin provides completion for docker-compose as well as some aliases for frequent docker-compose commands.
     emoji      # Support for conveniently working with Unicode emoji in Zsh.
     brew       # homebrew alias setting
-    tmux       # tmux alias setting
+    # tmux       # tmux alias setting
   )
 fi
 
