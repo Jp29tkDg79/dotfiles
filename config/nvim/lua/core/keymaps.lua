@@ -93,7 +93,7 @@ map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 -- lspsaga
 ---------------------
 map("n", "K", "<cmd>Lspsaga hover_doc<cr>", { desc = "Hover doc" })
-map("n", "gf", "<cmd>Lspsaga lsp_finder<cr>", { desc = "Lsp finder" })
+map("n", "gf", "<cmd>Lspsaga finder<cr>", { desc = "Lsp finder" })
 map("n", "gd", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition" })
 map("n", "gd", "<cmd>Lspsaga goto_definition<cr>", { desc = "Goto definition" })
 map("n", "gr", "<cmd>Lspsaga rename<cr>", { desc = "Saga find all rename" })
