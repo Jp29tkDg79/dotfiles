@@ -84,7 +84,15 @@ return {
                 ---------------------
                 -- HTML
                 ---------------------
-                html = {},
+                html = {
+                    filetypes = { "html", "templ" },
+                },
+                ---------------------
+                -- HTMX
+                ---------------------
+                htmx = {
+                    filetypes = { "html", "templ" },
+                },
                 ---------------------
                 -- emmet_ls
                 ---------------------
@@ -111,7 +119,10 @@ return {
                 ---------------------
                 -- Tailwind CSS
                 ---------------------
-                tailwindcss = {},
+                tailwindcss = {
+                    filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+                    init_options = { userLanguages = { templ = "html" } },
+                },
                 ---------------------
                 -- CSS
                 ---------------------
@@ -165,6 +176,10 @@ return {
                         },
                     },
                 },
+                ---------------------
+                -- Golang templ
+                ---------------------
+                templ = {},
                 ---------------------
                 -- Python
                 ---------------------

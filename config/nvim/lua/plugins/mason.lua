@@ -32,10 +32,13 @@ return {
                 "golangci-lint",
                 "revive",
                 "staticcheck",
+                "templ",
                 -- java
                 "clang-format",
                 -- shcellcheck
                 "shellcheck",
+                -- htmx
+                "htmx-lsp",
                 ---------------------
                 -- dap
                 ---------------------

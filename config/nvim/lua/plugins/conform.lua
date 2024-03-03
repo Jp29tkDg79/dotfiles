@@ -38,6 +38,7 @@ return {
                 python = { "isort", "black" },
                 go = { "gofumpt", "goimports", "golines" },
                 java = { "clang_format" },
+                templ = { "templ" },
             },
             log_level = vim.log.levels.DEBUG,
             format_on_save = {
