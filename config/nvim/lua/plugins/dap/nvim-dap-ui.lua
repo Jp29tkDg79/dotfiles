@@ -4,6 +4,7 @@ return {
         event = "VeryLazy",
         dependencies = {
             "nvim-dap",
+            "nvim-neotest/nvim-nio",
         },
         opts = {
             icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
