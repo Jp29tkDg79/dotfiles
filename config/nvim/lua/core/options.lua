@@ -58,15 +58,20 @@ local list = {
         backup = false,
         backupskip = { "/tmp/*", "/private/tmp/*" },
     },
-    -- TODO: Nvimv9 upgrade setting statusline
-    -- local options
-    -- wo = {
-    -- },
+    -- filetype
+    -- TODO: 無理やり追加しているので、別の方法考えた方がいいかも...
+    filetype = {
+        templ = "templ",
+    },
 }
 
 for opt, tbl in pairs(list) do
-    local o = vim[opt]
-    for k, v in pairs(tbl) do
-        o[k] = v
+    if opt == "filetype" then
+        vim[opt].add({ extension = tbl })
+    else
+        local o = vim[opt]
+        for k, v in pairs(tbl) do
+            o[k] = v
+        end
     end
 end

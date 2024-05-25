@@ -38,12 +38,15 @@ return {
                 python = { "isort", "black" },
                 go = { "gofumpt", "goimports", "golines" },
                 java = { "clang_format" },
+                templ = { "templ" },
             },
             log_level = vim.log.levels.DEBUG,
             format_on_save = {
                 lsp_fallback = true,
-                async = true,
                 timeout_ms = 10000,
+            },
+            format_after_save = {
+                lsp_fallback = true,
             },
             -- Customize formatters
             formatters = {
