@@ -5,31 +5,23 @@ return {
         event = "VeryLazy",
         opts = {
             plugins = { spelling = true },
+            spec = {
+                { "g", group = "goto" },
+                { "gz", group = "surround" },
+                { "<leader><tab>", group = "tabs" },
+                { "<leader>t", group = "buffer/term" },
+                { "<leader>c", group = "code" },
+                { "<leader>f", group = "file/find/format" },
+                { "<leader>l", group = "lint" },
+                { "<leader>g", group = "git/saga" },
+                { "<leader>m", group = "markdown" },
+                { "<leader>q", group = "quit/session" },
+                { "<leader>s", group = "search" },
+                { "<leader>u", group = "ui" },
+                { "<leader>w", group = "windows" },
+                { "<leader>x", group = "diagnostics/quickfix" },
+                { "<leader>gh", group = "hunks" },
+            },
         },
-        config = function(_, opts)
-            local wk = require("which-key")
-            wk.setup(opts)
-            local keymaps = {
-                mode = { "n", "v" },
-                ["g"] = { name = "+goto" },
-                ["gz"] = { name = "+surround" },
-                ["]"] = { name = "+next" },
-                ["["] = { name = "+prev" },
-                ["<leader><tab>"] = { name = "+tabs" },
-                ["<leader>t"] = { name = "+buffer/term" },
-                ["<leader>c"] = { name = "+code" },
-                ["<leader>f"] = { name = "+file/find/format" },
-                ["<leader>l"] = { name = "+lint" },
-                ["<leader>g"] = { name = "+git/saga" },
-                ["<leader>m"] = { name = "+markdown" },
-                ["<leader>q"] = { name = "+quit/session" },
-                ["<leader>s"] = { name = "+search" },
-                ["<leader>u"] = { name = "+ui" },
-                ["<leader>w"] = { name = "+windows" },
-                ["<leader>x"] = { name = "+diagnostics/quickfix" },
-                ["<leader>gh"] = { name = "+hunks" },
-            }
-            wk.register(keymaps)
-        end,
     },
 }
