@@ -105,7 +105,7 @@ return {
                 ---------------------
                 -- Js & ts
                 ---------------------
-                tsserver = {
+                ts_ls = {
                     filetypes = {
                         "javascript",
                         "javascriptreact",
